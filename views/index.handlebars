@@ -1,0 +1,43 @@
+ <div class = "container-fluid">
+        <h1 id = "test">Burger House</h1>
+    </div>
+    <div class = "container-fluid">
+        <div class = "row">
+            <div class = "col-3" id = "menu">
+                Menu:
+                <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                <li class = "bList">
+                {{burger_name}}
+                <button class="change-devour" data-id="{{id}}" data-newdevour="{{devoured}}">
+	            Click to Devour!</button>
+                </li>
+                {{/unless}}
+                {{/each}}
+                </li>
+                </ul>
+            </div>
+            <div class = "col-3" id = "devoured">
+                Devoured:
+                <ul id = "dList">
+                {{#each burgers}}
+                {{#if devoured}}
+                <li>
+                {{burger_name}}
+                </li>
+                {{/if}}
+                {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class = "row">
+            <form class = "create-form" id = "cForm">
+                <div class="form-group" id = "create">
+                    <label for="userBurger">Create a Burger!</label>
+                    <input type="input" class="form-control" id="userBurger" placeholder="ex. Double Butter Burger">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
